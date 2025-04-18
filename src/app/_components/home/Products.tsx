@@ -1,11 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Product from "../Product";
+import Link from "next/link";
+
+export enum ProductCategory {
+  NEW_ARRIVALS = "NEW_ARRIVALS",
+  TOP_SELLERS = "TOP_SELLERS",
+}
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 const staggerContainer = {
@@ -13,34 +19,56 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
+
+interface Product {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+  stars: number;
+  category: ProductCategory;
+}
 
 interface ProductsProps {
   title: string;
-  products: Array<{
-    id: number;
-    image: string;
-    title: string;
-    price: number;
-    stars: number;
-    discountPercentage?: number;
-  }>;
+  category: ProductCategory;
 }
 
-export default function Products({ title, products }: ProductsProps) {
+export default function Products({ title, category }: ProductsProps) {
   const [showAll, setShowAll] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch(`/api/fetchProducts?category=${category}`);
+      const data = await response.json();
+      console.log(data);
+      setProducts(data.products);
+      setIsLoading(false);
+    };
+    fetchProducts();
+  }, [category]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <motion.section 
+    <motion.section
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
       className="flex flex-col items-center justify-between px-[5%] py-5 bg-background text-foreground gap-10"
     >
-      <motion.h2 variants={fadeInUp} className="font-integralCF text-4xl font-bold uppercase max-md:text-3xl">
+      <motion.h2
+        variants={fadeInUp}
+        className="font-integralCF text-4xl font-bold uppercase max-md:text-3xl"
+      >
         {title}
       </motion.h2>
       <motion.div
@@ -49,17 +77,18 @@ export default function Products({ title, products }: ProductsProps) {
       >
         <AnimatePresence>
           {products.slice(0, showAll ? products.length : 4).map((product) => (
-            <motion.div
-              key={product.id}
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <Product {...product} />
-            </motion.div>
+            <Link href={`/product/${product.id}`} key={product.id}>
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Product {...product} />
+              </motion.div>
+            </Link>
           ))}
         </AnimatePresence>
       </motion.div>
@@ -75,4 +104,4 @@ export default function Products({ title, products }: ProductsProps) {
       )}
     </motion.section>
   );
-} 
+}
