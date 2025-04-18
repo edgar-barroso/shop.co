@@ -34,7 +34,6 @@ export default function ProductCard({
         <Image src={image} alt={title} width={500} height={500} />
         <div className="flex flex-col items-start gap-2 ">
           <h1 className="font-integralCF text-4xl font-bold">{title}</h1>
-          <h2 className="text-sm font-bold">{title}</h2>
           <div className="flex items-center justify-start w-full">
             <div className="flex items-center relative h-4 w-[120px]">
               <div
@@ -108,7 +107,9 @@ export default function ProductCard({
                   key={color.id}
                   style={{ backgroundColor: color.hex }}
                   className={` text-xl w-8 h-8 rounded-full flex items-center justify-center ${
-                    selectedColor === color.name ? "border-2 border-foreground/50" : ""
+                    selectedColor === color.name
+                      ? "border-2 border-foreground/50"
+                      : ""
                   }`}
                   onClick={() => setSelectedColor(color.name)}
                 >
@@ -126,7 +127,9 @@ export default function ProductCard({
                 <div
                   key={size.id}
                   className={`cursor-pointer text-xl bg-foreground/10 rounded-full flex items-center justify-center px-4 py-2 ${
-                    selectedSize === size.size ? "bg-foreground/100 text-background" : ""
+                    selectedSize === size.size
+                      ? "bg-foreground/100 text-background"
+                      : ""
                   }`}
                   onClick={() => setSelectedSize(size.size)}
                 >
@@ -153,7 +156,9 @@ export default function ProductCard({
                 className="cursor-pointer hover:scale-110 transition-all duration-300"
               />
             </div>
-            <button className="bg-foreground text-background rounded-full px-4 py-2 w-full cursor-pointer">Add to Cart</button>
+            <button className="bg-foreground text-background rounded-full px-4 py-2 w-full cursor-pointer">
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
@@ -194,5 +199,56 @@ const sizes = [
     id: 3,
     name: "Large",
     size: "L",
+  },
+];
+
+const reviews = [
+  {
+    id: 1,
+    name: "John Doe",
+    stars: 5,
+    createdAt: "2021-01-01",
+    review:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+  },
+  {
+    id: 2,
+    name: "John Doe",
+    stars: 5,
+    createdAt: "2021-01-01",
+    review:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+  },
+  {
+    id: 3,
+    name: "John Doe",
+    stars: 5,
+    createdAt: "2021-01-01",
+    review:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+  },
+  {
+    id: 4,
+    name: "John Doe",
+    stars: 5,
+    createdAt: "2021-01-01",
+    review:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+  },
+  {
+    id: 5,
+    name: "John Doe",
+    stars: 5,
+    createdAt: "2021-01-01",
+    review:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+  },
+  {
+    id: 6,
+    name: "John Doe",
+    stars: 5,
+    createdAt: "2021-01-01",
+    review:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
   },
 ];
