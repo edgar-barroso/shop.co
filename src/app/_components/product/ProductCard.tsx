@@ -4,13 +4,14 @@ import { useState } from "react";
 import { BiCheck } from "react-icons/bi";
 import { CgMathPlus } from "react-icons/cg";
 import { CgMathMinus } from "react-icons/cg";
+import { ProductCategory } from "../home/Products";
 
 interface ProductCardProps {
   id: number;
   image: string;
   title: string;
   price: number;
-  category: string;
+  category: ProductCategory;
   stars: number;
   discountPercentage?: number;
   description: string;
