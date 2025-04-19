@@ -11,7 +11,7 @@ import {
 export default function Footer() {
   return (
     <footer>
-      <div className="flex max-md:flex-col items-center justify-between  mx-[10%] max-md:mx-[5%] bg-foreground text-background rounded-2xl p-5 md:h-28 max-md:gap-2">
+      <div className="flex max-md:flex-col items-center justify-between  mx-[5%] max-md:mx-[5%] bg-foreground text-background rounded-2xl p-5 md:h-28 max-md:gap-2">
         <h1 className="text-4xl font-bold uppercase font-integralCF max-md:text-2xl max-lg:text-xl">
           STAY UPTO DATE ABOUT <br />
           OUR LATEST OFFERS
@@ -33,7 +33,7 @@ export default function Footer() {
           </button>
         </form>
       </div>
-      <div className="flex max-md:grid max-md:grid-cols-2 max-md:gap-10 items-start justify-between -mt-14 bg-foreground/10 text-foreground/50 px-[10%] pt-20 pb-5">
+      <div className="flex max-md:grid max-md:grid-cols-2 max-md:gap-10 items-start justify-between -mt-14 bg-foreground/10 text-foreground/50 px-[5%] pt-20 pb-5">
         <div className="flex flex-col gap-2 justify-between">
           <h3 className="text-xl font-integralCF uppercase text-foreground">
             SHOP.CO

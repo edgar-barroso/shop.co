@@ -12,7 +12,7 @@ interface ProductCardProps {
   price: number;
   category: string;
   stars: number;
-  discountPercentage: number;
+  discountPercentage?: number;
   description: string;
 }
 
@@ -28,9 +28,9 @@ export default function ProductCard({
   const [selectedSize, setSelectedSize] = useState<string>(sizes[0].size);
   const [quantity, setQuantity] = useState<number>(1);
   return (
-    <div className="flex flex-col items-start justify-start py-5 mx-[10%]">
+    <div className="flex flex-col items-start justify-start py-5 mx-[5%] ">
       <p className="text-sm text-foreground/60 py-5">Home / {title}</p>
-      <div className="flex items-start justify-center gap-8">
+      <div className="flex items-start justify-center gap-8 max-md:flex-col">
         <Image src={image} alt={title} width={500} height={500} />
         <div className="flex flex-col items-start gap-2 ">
           <h1 className="font-integralCF text-4xl font-bold">{title}</h1>
@@ -106,7 +106,7 @@ export default function ProductCard({
                 <div
                   key={color.id}
                   style={{ backgroundColor: color.hex }}
-                  className={` text-xl w-8 h-8 rounded-full flex items-center justify-center ${
+                  className={` text-xl w-8 h-8 rounded-full flex items-center justify-center cursor-pointer ${
                     selectedColor === color.name
                       ? "border-2 border-foreground/50"
                       : ""
@@ -202,53 +202,3 @@ const sizes = [
   },
 ];
 
-const reviews = [
-  {
-    id: 1,
-    name: "John Doe",
-    stars: 5,
-    createdAt: "2021-01-01",
-    review:
-      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
-  },
-  {
-    id: 2,
-    name: "John Doe",
-    stars: 5,
-    createdAt: "2021-01-01",
-    review:
-      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
-  },
-  {
-    id: 3,
-    name: "John Doe",
-    stars: 5,
-    createdAt: "2021-01-01",
-    review:
-      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
-  },
-  {
-    id: 4,
-    name: "John Doe",
-    stars: 5,
-    createdAt: "2021-01-01",
-    review:
-      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
-  },
-  {
-    id: 5,
-    name: "John Doe",
-    stars: 5,
-    createdAt: "2021-01-01",
-    review:
-      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
-  },
-  {
-    id: 6,
-    name: "John Doe",
-    stars: 5,
-    createdAt: "2021-01-01",
-    review:
-      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
-  },
-];

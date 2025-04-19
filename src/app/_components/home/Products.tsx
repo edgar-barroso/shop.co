@@ -47,7 +47,6 @@ export default function Products({ title, category }: ProductsProps) {
     const fetchProducts = async () => {
       const response = await fetch(`/api/fetchProducts?category=${category}`);
       const data = await response.json();
-      console.log(data);
       setProducts(data.products);
       setIsLoading(false);
     };
