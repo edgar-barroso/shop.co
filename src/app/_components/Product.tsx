@@ -13,7 +13,16 @@ export default function Product({ image, title, price, stars ,discountPercentage
 
   return (
     <div className="flex flex-col items-start justify-center gap-1.5">
-      <Image src={image} alt={title} width={600} height={600} />
+      <div className="relative w-[300px] h-[300px] max-md:w-full max-md:h-auto overflow-hidden rounded-2xl">
+      <Image
+        src={image}
+        alt={title}
+        width={600}
+        height={600}
+        className={`transition-transform duration-300 object-cover w-full h-full`}
+        
+      />
+      </div>
       <h2 className="text-sm font-bold">{title}</h2>
       <div className="flex items-center justify-start w-full">
 

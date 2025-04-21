@@ -31,7 +31,7 @@ export default function Header() {
           >
             {isMobileMenuOpen ? <IoClose /> : <IoMenu />}
           </button>
-          <Link href={"#"} className="font-extrabold font-integralCF text-2xl">
+          <Link href={"/"} className="font-extrabold font-integralCF text-2xl">
             SHOP.CO
           </Link>
         </div>
