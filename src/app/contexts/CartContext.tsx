@@ -55,7 +55,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
           : item
       );
     } else {
-      updatedCart = [...cart, { ...product, quantity: 1 }];
+      updatedCart = [...cart, { ...product, quantity: product.quantity }];
     }
     setCart(updatedCart);
   };
