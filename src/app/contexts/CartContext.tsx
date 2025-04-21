@@ -13,6 +13,7 @@ const CART_KEY = 'shop-co-cart';
 export interface CartItem {
   id: number;
   variantId: number;
+  sizeId: number;
   quantity: number;
 }
 
@@ -20,7 +21,7 @@ interface CartContextType {
   cart: CartItem[];
   quantity: number;
   addItem: (item: CartItem) => void;
-  removeItem: (id: number) => void;
+  removeItem: (id: number, variantId: number, sizeId: number) => void;
   clearCart: () => void;
 }
 
@@ -44,13 +45,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addItem = (product: CartItem) => {
     const existingItem = cart.find(
-      item => item.id === product.id && item.variantId === product.variantId
+      item => item.id === product.id && item.variantId === product.variantId && item.sizeId === product.sizeId
     );
 
     let updatedCart;
     if (existingItem) {
       updatedCart = cart.map(item =>
-        item.id === product.id && item.variantId === product.variantId
+        item.id === product.id && item.variantId === product.variantId && item.sizeId === product.sizeId
           ? { ...item, quantity: item.quantity + product.quantity }
           : item
       );
@@ -60,8 +61,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCart(updatedCart);
   };
 
-  const removeItem = (id: number) => {
-    setCart(cart.filter(item => item.id !== id));
+  const removeItem = (id: number, variantId: number, sizeId: number) => {
+    setCart(cart.filter(item => !(item.id === id && item.variantId === variantId && item.sizeId === sizeId)));
   };
 
   const clearCart = () => {

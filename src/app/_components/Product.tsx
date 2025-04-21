@@ -13,7 +13,7 @@ export default function Product({ image, title, price, stars ,discountPercentage
 
   return (
     <div className="flex flex-col items-start justify-center gap-1.5">
-      <div className="relative w-[300px] h-[300px] max-md:w-full max-md:h-auto overflow-hidden rounded-2xl">
+      <div className="relative w-[300px] h-[300px] max-md:w-[150px] max-md:h-[150px] overflow-hidden rounded-2xl">
       <Image
         src={image}
         alt={title}

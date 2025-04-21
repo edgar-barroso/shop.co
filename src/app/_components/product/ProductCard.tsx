@@ -36,6 +36,7 @@ interface Variant {
 }
 
 export default function ProductCard({
+  id,
   image,
   title,
   price,
@@ -71,8 +72,9 @@ export default function ProductCard({
 
   const handleAddToCart = () => {
     addItem({
-      id: selectedVariant.id,
-      variantId: selectedSize.id,
+      id: id,
+      variantId: selectedVariant.id,
+      sizeId: selectedSize.id,
       quantity: quantity,
     });
   };

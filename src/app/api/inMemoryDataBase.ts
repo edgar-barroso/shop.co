@@ -23,8 +23,8 @@ const products = [
         hex: "#FF0001",
         images: [
           "/images/shirt-1.png",
-          "/images/shirt-1.png",
-          "/images/shirt-1.png",
+          "/images/shirt-2.png",
+          "/images/shirt-3.png",
         ],
         sizes: [
           { id: 1, name: "Small", size: "S", stock: 15 },

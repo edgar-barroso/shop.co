@@ -71,7 +71,7 @@ export default function Products({ title, category }: ProductsProps) {
         {title}
       </motion.h2>
       <motion.div
-        className={`grid grid-cols-2 md:grid-cols-4 items-center justify-between gap-10 w-full`}
+        className={`grid grid-cols-2 md:grid-cols-4 items-start  justify-between gap-10 w-full`}
         variants={staggerContainer}
       >
         <AnimatePresence>

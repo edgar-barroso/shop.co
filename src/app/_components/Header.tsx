@@ -56,9 +56,7 @@ export default function Header() {
           <Link href={"/cart"}>
             <FaShoppingCart size={40} />
           </Link>
-          <div className="absolute items-center justify-center top-0 right-0 text-background rounded-full bg-foreground h-6 w-6 text-center border border-background">
-            <span className="text-sm">{quantity}</span>
-          </div>
+            <span className="absolute -top-2 -right-2 px-1 py-0.5 text-background bg-foreground rounded-full text-sm border border-background">{quantity}</span>
         </div>
       </div>
 
