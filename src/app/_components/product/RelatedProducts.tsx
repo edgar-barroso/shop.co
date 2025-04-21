@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Product from "../Product";
 
 export default function RelatedProducts() {
@@ -10,7 +11,9 @@ export default function RelatedProducts() {
       </h2>
       <div className="flex gap-4 max-md:flex-col">
         {relatedProducts.map((product) => (
-          <Product key={product.id} {...product} />
+          <Link href={`/product/${product.id}`} key={product.id}>
+            <Product {...product} />
+          </Link>
         ))}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Stars } from "./Stars";
 
 interface ProductProps {
     image: string;
@@ -12,20 +13,11 @@ export default function Product({ image, title, price, stars ,discountPercentage
 
   return (
     <div className="flex flex-col items-start justify-center gap-1.5">
-      <Image src={image} alt={title} width={500} height={500} />
+      <Image src={image} alt={title} width={600} height={600} />
       <h2 className="text-sm font-bold">{title}</h2>
       <div className="flex items-center justify-start w-full">
 
-      <div className="flex items-center relative h-2 w-[60px]">
-      <div className={`absolute z-20 right-0 bottom-0  h-full gap-1 w-full bg-background`} style={{width: `${100-(stars/5*100)}%`}}/>
-        <div className={`absolute z-10 left-0 bottom-0 flex items-center justify-between h-full w-full`} >
-        <Image src="/svg/star-2.svg" alt="star" width={10} height={10}/>
-        <Image src="/svg/star-2.svg" alt="star" width={10} height={10}/>
-        <Image src="/svg/star-2.svg" alt="star" width={10} height={10}/>
-        <Image src="/svg/star-2.svg" alt="star" width={10} height={10}/>
-        <Image src="/svg/star-2.svg" alt="star" width={10} height={10}/>
-        </div>
-      </div>
+      <Stars stars={stars} size={15} />
       <p className="text-sm">
       {stars}/5
       </p>

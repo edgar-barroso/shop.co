@@ -8,8 +8,6 @@ import Reviews from "./_components/home/Reviews";
 
 
 export default function Home() {
-
-
   return (
     <main className="">
       <Hero />

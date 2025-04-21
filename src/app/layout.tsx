@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
 import localFont from "next/font/local";
+import Footer from "@/app/_components/Footer";
+import Header from "@/app/_components/Header";
+import { CartProvider } from "@/app/contexts/CartContext";
 
 export const metadata: Metadata = {
   title: "SHOP.CO",
@@ -29,9 +30,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`antialiased ${integralCF.variable} `}>
+      <CartProvider>
+
         <Header />
         {children}
         <Footer />
+      </CartProvider>
       </body>
     </html>
   );
