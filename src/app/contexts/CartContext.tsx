@@ -51,7 +51,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     if (existingItem) {
       updatedCart = cart.map(item =>
         item.id === product.id && item.variantId === product.variantId
-          ? { ...item, quantity: item.quantity + 1 }
+          ? { ...item, quantity: item.quantity + product.quantity }
           : item
       );
     } else {

@@ -56,6 +56,14 @@ export default function ProductCard({
   const { addItem} = useCart();
 
 
+  const handleAddToCart = ()=>{
+    addItem({
+      id:selectedVariant.id,
+      variantId:selectedSize.id,
+      quantity:quantity
+    })
+  }
+
   const handleVariantChange = (variant: Variant) => {
     setSelectedVariant(variant);
     setSelectedSize(variant.sizes[0]);
@@ -198,11 +206,7 @@ export default function ProductCard({
             <button 
               className="bg-foreground text-background rounded-full px-4 py-2 w-full cursor-pointer hover:bg-foreground/90 transition-colors"
               disabled={selectedSize.stock === 0}
-              onClick={() => addItem({
-                id: selectedVariant.id,
-                variantId: selectedSize.id,
-                quantity: quantity,
-              })}
+              onClick={handleAddToCart}
             >
               {selectedSize.stock === 0 ? "Out of Stock" : "Add to Cart"}
             </button>
